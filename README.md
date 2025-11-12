@@ -5,53 +5,31 @@
 ## - Kelas : PBP E
 
 ## Link Dokumentasi Tugas
+[Tugas 7](../../wiki/[README]-Tugas-Individu-7)
 
 
+### Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement() pada Flutter. Dalam kasus apa sebaiknya masing-masing digunakan pada aplikasi Football Shop kamu?
 
-### Jelaskan apa itu widget tree pada Flutter dan bagaimana hubungan parent-child (induk-anak) bekerja antar widget
+Navigator.push() akan menumpuk atau menambah halaman baru diatas halaman sebelumnya/saat ini, sehingga nanti dapat kembali ke halaman sebelumnya dengan Navigator.pop() atau tombol back
+Navigator.pushReplacement() akan mengganti halaman saat ini dengan halaman baru dan halaman lama dihapus sehingga tidak dapat kembali ke halaman lama/sebelumnya
 
-Widget Tree adalah struktur hierarki berbentuk pohon yang menggambarkan susunan widget di Flutter. Setiap widget bisa memiliki parent (induk) dan children (anak).
+Halaman umum yang biasanya akan digunakan kembali seperti home, detail produk lebih baik menggunakan push tapi jika yang tidak perlu kembali lagi ke halaman tersebut seperti add product atau login maka lebih baik menggunakan pushReplacement
 
-Child berada didalam Parent sehingga parent akan mengatur gaya, tata letak, dan posisi child sementara child akan menentukan isi dari tampilannya. 
-### Sebutkan semua widget yang kamu gunakan dalam proyek ini dan jelaskan fungsinya
-* MaterialApp = Menjadi wrapper dari seluruh aplikasi agar menggunakan gaya material design dan mengatur navigasi, tema, route.
-* Scaffold = Struktur utama halaman
-* AppBar = Bar dibagian atas (hampir mirip seperti navbar) untuk judul dan action
-* Column/Row = Membuat widget menjadi menggunakan aturan kolom dan baris yang bisa diatur (children)
-* Container = Mengatur ukuran, margin, padding, warna, dan dekorasi
-* Text = Text di layar
-* ElevateButton = Tombol dengan gaya material design
-* Navigator =Mengatur perpindahan antar halaman
-* MediaQuery = Informasi ukuran layar dan device
-* Icon = Icon
-* InkWell = Area responsif touch
-* Center = Membuat child berada di tengah
-* GridView.count = Menampilkan children dalam grid dengan jumlah kolom tetap
-* Expanded = Mengisi ruang yang bisa diisi (akan melebar sesuai free space)
+### Bagaimana kamu memanfaatkan hierarchy widget seperti Scaffold, AppBar, dan Drawer untuk membangun struktur halaman yang konsisten di seluruh aplikasi?
 
-### Apa fungsi dari widget MaterialApp? Jelaskan mengapa widget ini sering digunakan sebagai widget root
-* Mengimplementasikan Material Design dari Google
-* Mengatur tema aplikasi (colors, typography, shapes)
-* Menyediakan navigasi dan routing
-* Mengatur title aplikasi
-* Mengelola Navigator untuk perpindahan halaman
+Widget Scaffold digunakan sebagai kerangka utama setiap halaman agar memiliki struktur yang konsisten. Di dalamnya, AppBar berfungsi menampilkan judul dan ikon navigasi seperti keranjang, sedangkan Drawer digunakan sebagai menu navigasi samping untuk berpindah antar halaman seperti Home, Produk, dan Tentang Aplikasi
 
-MaterialApp sering digunakan sebagai widget root karena sudah menyediakan Navigator, Tema, MediaQuery dll sehingga lebih mudah. MaterialApp juga memiliki design yang sesuai standar dan familiar, Hot reload berkerja optimal, debugging mudah, dan memiliki konsistensi tinggi.
+### Dalam konteks desain antarmuka, apa kelebihan menggunakan layout widget seperti Padding, SingleChildScrollView, dan ListView saat menampilkan elemen-elemen form? Berikan contoh penggunaannya dari aplikasi kamu.
 
-### Jelaskan perbedaan antara StatelessWidget dan StatefulWidget. Kapan kamu memilih salah satunya?
+Layout widget seperti Padding, SingleChildScrollView, dan ListView membantu tampilan form agar rapi, tidak menumpuk, dan bisa discroll saat layar kecil.
+* Padding memberi jarak antar elemen supaya tidak terlalu rapat.
+* SingleChildScrollView membuat seluruh form bisa di-scroll kalau isinya panjang.
+* ListView mempermudah menampilkan daftar input atau produk dalam bentuk list yang fleksibel.
 
-StatelessWidget tidak bisa diubah setelah dibuat sementara StatefulWidget dapat berubah saat runtime karena StatefulWidget punya state yang bisa diupdate. Akan tetapi StatelessWidget lebih ringan daripada StatefulWidget.
+Contoh pada aplikasi
+Padding di sekitar TextField agar jarak antar form rapi dan SingleChildScrollView agar form bisa di scroll saat keyboard muncul
 
-Jika widget hanya menampilkan data statis yang tidak berubah, maka lebih baik memakai StatelesWidget akan tetapi jika membutuhkan tracking user interaction seperti button click, input form maka StatefulWidget lebih baik digunakan. 
+### Bagaimana kamu menyesuaikan warna tema agar aplikasi Football Shop memiliki identitas visual yang konsisten dengan brand toko?
 
-### Apa itu BuildContext dan mengapa penting di Flutter? Bagaimana penggunaannya di metode build?
-
-BuildContext adalah referensi ke lokasi widget di tree yang mana setiap widget punya BuildContextnya sendiri. Ini digunakan untuk navigasi ke atas atau bawah widget tree. 
-
-BuildContext penting karena dengan method method yang ada dapat memberikan akses ke tema, mediaquery, navigation, snackbars dll.
-
-### Jelaskan konsep "hot reload" di Flutter dan bagaimana bedanya dengan "hot restart".
-
-Hot Reload mempertahankan state aplikasi dan hanya rebuild widget tree dengan kode baru. Ini dipakai ketika kita ingin mengubah UI, logic dalam suatu method, hapus widget dll. Akan tetapi tidak dapat reload perubahan di main atau global var. 
-
-Sementara Hot Restart merestart app dari awal dan semua state hilang. Karena itulah hot restart akan lebih lama, dan merebuild seluruh aplikasi dari main. Ini digunakan ketika kita ingin mengubah main function, mengubah global var, dan initState yang perlu reset state. 
+Mengatur ThemeData di widget MaterialApp, seperti primaryColor, colorScheme, dan scaffoldBackgroundColor.
+Dengan begitu, semua elemen seperti AppBar, tombol, ikon, dan kartu produk menggunakan warna utama yang sama, sehingga aplikasi Bal balan punya identitas visual yang konsisten dan khas, sesuai brand toko.
