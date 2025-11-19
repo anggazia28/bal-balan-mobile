@@ -9,9 +9,9 @@ class MyHomePage extends StatelessWidget {
   final String npm = "2406495943";//npm
   final String kelas = "E"; //kelas
   final List<ItemHomepage> items = [
-    ItemHomepage("All Product", Icons.all_inbox), 
-    ItemHomepage("My Product", Icons.my_library_books, color: Colors.green),
-    ItemHomepage("Tambah Product", Icons.add_box, color: Colors.red),
+    ItemHomepage("All Product", Icons.all_inbox, color: Colors.red), 
+    ItemHomepage("My Product", Icons.my_library_books, color: Colors.yellow),
+    ItemHomepage("Tambah Product", Icons.add_box, color: Colors.green),
   ];
 
   @override

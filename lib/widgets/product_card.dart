@@ -1,6 +1,8 @@
 import 'package:bal_balan/productslist_form.dart';
+import 'package:bal_balan/screens/product_entry_list.dart';
 import 'package:flutter/material.dart';
 import 'package:bal_balan/screens/menu.dart';
+
 class ItemCard extends StatelessWidget {
   // Menampilkan kartu dengan ikon dan nama.
 
@@ -31,6 +33,22 @@ class ItemCard extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => ProductFormPage(),
                   ));
+          }
+          else if (item.name == "All Product") {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProductEntryListPage()
+                  ),
+              );
+          }
+          else if (item.name == "My Product"){
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProductEntryListPage()
+                  ),
+              );
           }
         },
         // Container untuk menyimpan Icon dan Text
